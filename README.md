@@ -1,6 +1,6 @@
 ECE 251 Homework 3,4,5
 
-Question 1: 
+Question 1: <br />
 addi $s2, $s2, -5 <br />
 add $s0, $s1, $s2
 
