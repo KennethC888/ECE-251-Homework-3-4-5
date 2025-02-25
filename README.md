@@ -9,13 +9,13 @@ Question 2:
 
 Question 3:
 
-| MIPS code     | Type         |  opcode  | rs | rt |  rd  |  funct |  Hex
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | d             | d              |              |                |            |            |
-| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  
-| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  
-| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  
-| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  
+| MIPS code     | Type          |  opcode       |      rs       | rt             |  rd            |  funct       |  imm       | Hex equivalent
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | d             | d              |              |                |            |                  |             |
+| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  |Content Cell  
+| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  |Content Cell  
+| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  |Content Cell  
+| Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  |Content Cell  
 
 Question 4: 
 op=0x23, rs=1, rt=2, const=0x4 <br />
