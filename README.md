@@ -9,9 +9,9 @@ Question 2:
 
 Question 3:
 
-| MIPS code     | Type          |  opcode       |      rs       | rt             |  rd            |  funct       |  imm       | Hex equivalent
+| MIPS code       | Type          |  opcode       |      rs       | rt             |  rd            |  funct       |  imm       | Hex equivalent
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | d             | d              |              |                |            |                  |             |
+| addi $t0, $s6, 4 | Content Cell  | d             | d              |              |                |            |                  |             |
 | Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  |Content Cell  
 | Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  |Content Cell  
 | Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  |Content Cell  |Content Cell  
