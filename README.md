@@ -18,7 +18,7 @@ Question 3:
 | Content Cell  | Content Cell  |  Content Cell  | Content Cell  | Content Cell  | Content Cell  |Content Cell  
 
 Question 4: 
-op=0x23, rs=1, rt=2, const=0x4 
-Type: I
-Assembly Language Instruction: lw $v0, 4($at) 
+op=0x23, rs=1, rt=2, const=0x4 <br />
+Type: I <br />
+Assembly Language Instruction: lw $v0, 4($at) <br />
 Binary Representation: 10001100001000100000000000000100
