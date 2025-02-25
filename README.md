@@ -7,7 +7,7 @@ add $s0, $s1, $s2
 Question 2: 
 
 
-Question 3 (opcode, rs, rt, rd, funct, imm in decimal):
+Question 3 (opcode, rs, rt, rd, funct, imm in decimal): <br />
 x means that it does not apply
 
 | MIPS code         | Type | opcode | rs  | rt  | rd  | funct | imm | Hex equivalent |
