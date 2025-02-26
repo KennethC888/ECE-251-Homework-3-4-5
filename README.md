@@ -1,13 +1,13 @@
-ECE 251 Homework 3,4,5
+# ECE 251 Homework 3,4,5
 
-Question 1: <br />
+ ## Question 1: <br />
 addi $s2, $s2, -5 <br />
 add $s0, $s1, $s2
 
-Question 2: <br />
+## Question 2: <br />
 f = A[0] + A[0];
 
-Question 3 (opcode, rs, rt, rd, funct, imm in decimal): <br />
+## Question 3 (opcode, rs, rt, rd, funct, imm in decimal): <br />
 x means that it does not apply
 
 | MIPS code         | Type | opcode | rs  | rt  | rd  | funct | imm | Hex equivalent |
@@ -18,7 +18,7 @@ x means that it does not apply
 | lw $t0, 0($t0)    | I    | 35     | 8   | 8   | x   | x     | 0   | 8D080000       |
 | add $s0, $t1, $t0 | R    | 0      | 9   | 8   | 16  | 32    | 0   | 01288020       |
 
-Question 4: 
+## Question 4: 
 op=0x23, rs=1, rt=2, const=0x4 <br />
 Type: I <br />
 Assembly Language Instruction: lw $v0, 4($at) <br />
