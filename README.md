@@ -25,7 +25,10 @@ Assembly Language Instruction: lw $v0, 4($at) <br />
 Binary Representation: 10001100001000100000000000000100
 
 ### Question 5: <br />
+Given PC = 20000000 <br />
+Lower bound: (PC + 4 - (4 * offset) <br/ >
+Upper bound: (PC + 4 + (4 *offset)) <br />
 a) Ranges from 20000000 to 2FFFFFFC <br />
-b) Ranges from 20007FFF to 1FFF8000
+b) Ranges from 1FFE0004 to 20020000
 
 
