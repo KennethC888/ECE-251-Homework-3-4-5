@@ -15,8 +15,8 @@
 
 module tb_ALU;
     // ---------------- DECLARATIONS OF DATA TYPES ----------------
-    reg [7:0] operand_a; // Input operand A
-    reg [7:0] operand_b; // Input operand B
+    reg [7:0] a; // Input operand A
+    reg [7:0] b; // Input operand B
     reg [3:0] operation; // Operation selection
     wire [7:0] result;   // Output result
     wire carry_out;      // Output carry_out
@@ -25,15 +25,15 @@ module tb_ALU;
     ALU dut (
         .result(result),
         .carry_out(carry_out),
-        .operand_a(operand_a),
-        .operand_b(operand_b),
+        .a(a),
+        .b(b),
         .operation(operation)
     );
 
     // ---------------- INITIALIZE TEST BENCH ----------------
     initial begin : initialize_variables
-        operand_a = 8'b00110011; // Initialize operand A
-        operand_b = 8'b11001100; // Initialize operand B
+        a = 8'b00110011; // Initialize operand A
+        b = 8'b11001100; // Initialize operand B
         operation = 4'b0000;     // Initialize operation (addition)
     end
 
@@ -46,7 +46,7 @@ module tb_ALU;
     // ---------------- MONITOR OUTPUTS ----------------
     initial begin
         $monitor("Time: %0t | operand_a=%b | operand_b=%b | operation=%b | result=%b | carry_out=%b",
-                 $time, operand_a, operand_b, operation, result, carry_out);
+                 $time, a, b, operation, result, carry_out);
     end
 
     // ---------------- APPLY RANDOM STIMULUS ----------------
@@ -58,8 +58,8 @@ module tb_ALU;
     // Generate random inputs every 10 time units
     always begin
         #10; // Wait for 10 time units
-        operand_a = $random; // Randomize operand A
-        operand_b = $random; // Randomize operand B
+        a = $random; // Randomize operand A
+        b = $random; // Randomize operand B
         operation = $random; // Randomize operation
     end
 endmodule
