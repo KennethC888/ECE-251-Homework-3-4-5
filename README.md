@@ -5,7 +5,6 @@ addi $s2, $s2, -5 <br />
 add $s0, $s1, $s2
 
 ### Question 2: <br />
-
 f = A[0] + A[0];
 
 ### Question 3 (opcode, rs, rt, rd, funct, imm in decimal): <br />
