@@ -26,7 +26,7 @@ Assembly Language Instruction: lw $v0, 4($at) <br />
 Binary Representation: 10001100001000100000000000000100
 
 ### Question 5: <br />
-a) Ranges from 20000000 to 2FFFFFFC
+a) Ranges from 20000000 to 2FFFFFFC <br />
 b) Ranges from 20007FFF to 1FFF8000
 
 
