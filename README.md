@@ -13,10 +13,10 @@ x means that it does not apply
 | MIPS code         | Type and instruction | opcode | rs  | rt  | rd  | funct | imm | Hex equivalent |
 | ----------------- | ----                 | ------ | --- | --- | --- | ----- | --- | -------------- |
 | addi $t0, $s6, 4  | I and addi           | 8      | 22  | 8   | x   | x     | 4   | 22C80004       |
-| add $t1, $s6, $0  | R and add            | 0      | 22  | 0   | 9   | 32    | 0   | 02C04820       |
+| add $t1, $s6, $0  | R and add            | 0      | 22  | 0   | 9   | 32    | x   | 02C04820       |
 | sw $t1, 0($t0)    | I and sw             | 43     | 8   | 9   | x   | x     | 0   | AD090000       |
 | lw $t0, 0($t0)    | I and lw             | 35     | 8   | 8   | x   | x     | 0   | 8D080000       |
-| add $s0, $t1, $t0 | R and add            | 0      | 9   | 8   | 16  | 32    | 0   | 01288020       |
+| add $s0, $t1, $t0 | R and add            | 0      | 9   | 8   | 16  | 32    | x   | 01288020       |
 
 ### Question 4: 
 op=0x23, rs=1, rt=2, const=0x4 <br />
