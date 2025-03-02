@@ -5,6 +5,7 @@ addi $s2, $s2, -5 <br />
 add $s0, $s1, $s2
 
 ### Question 2: <br />
+
 f = A[0] + A[0];
 
 ### Question 3 (opcode, rs, rt, rd, funct, imm in decimal): <br />
@@ -18,8 +19,14 @@ x means that it does not apply
 | lw $t0, 0($t0)    | I and lw             | 35     | 8   | 8   | x   | x     | 0   | 8D080000       |
 | add $s0, $t1, $t0 | R and add            | 0      | 9   | 8   | 16  | 32    | x   | 01288020       |
 
-### Question 4: 
+### Question 4: <br />
 op=0x23, rs=1, rt=2, const=0x4 <br />
 Type: I <br />
 Assembly Language Instruction: lw $v0, 4($at) <br />
 Binary Representation: 10001100001000100000000000000100
+
+### Question 5: <br />
+a) Ranges from 20000000 to 2FFFFFFC
+b) Ranges from 20007FFF to 1FFF8000
+
+
