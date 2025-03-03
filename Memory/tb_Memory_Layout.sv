@@ -57,11 +57,11 @@ module tb_Memory_Layout;
         data_in = 8'hA5;  // Data to write = 0xA5
         #10;              // Wait for one clock cycle
 
-        // Test 2: Read data from address 0x10
+        // **Wait an extra cycle after writing before reading**
         write_en = 0;     // Disable write (enable read)
-        addr = 8'h10;     // Address = 0x10
-        #10;              // Wait for one clock cycle
-        
+        #10;
+
+        // Test 2: Read data from address 0x10
         if (data_out === 8'hA5)
             $display("Test 1 Passed: Data read from address 0x10 = 0x%h", data_out);
         else
@@ -73,17 +73,19 @@ module tb_Memory_Layout;
         data_in = 8'h7E;  // Data to write = 0x7E
         #10;              // Wait for one clock cycle
 
-        // Test 4: Read data from address 0xFF
+        // **Wait an extra cycle before reading**
         write_en = 0;     // Disable write (enable read)
-        addr = 8'hFF;     // Address = 0xFF
-        #10;              // Wait for one clock cycle
+        #10;
+
+        // Test 4: Read data from address 0xFF
         if (data_out === 8'h7E)
             $display("Test 2 Passed: Data read from address 0xFF = 0x%h", data_out);
         else
             $display("Test 2 Failed: Expected 0x7E, Got 0x%h", data_out);
 
-        // End simulation
-        $stop;
+        // **Ensure proper simulation exit**
+        #20;
+        $finish;
     end
 
 endmodule
