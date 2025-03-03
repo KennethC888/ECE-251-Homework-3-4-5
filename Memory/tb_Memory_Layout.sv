@@ -14,72 +14,76 @@
 `include "Memory_Layout.sv"
 
 module tb_Memory_Layout;
-    // ---------------- DECLARATIONS OF DATA TYPES ----------------
-    reg clk; 
-    reg rst; // Input operand A
-    reg write_en;
-    reg [7:0] addr; // Operation selection
-    reg [7:0] data_in; 
-    wire [7:0] data_out; 
 
+    // Signals
+    reg clk;             
+    reg rst;           
+    reg write_en;  // Write enable (1 = write, 0 = read)
+    reg [7:0] addr;        
+    reg [7:0] data_in;     
+    wire [7:0] data_out;   
 
-    // ---------------- INSTANTIATE THE Memory Layout MODULE ----------------
     Memory_Layout dut (
         .clk(clk),
         .rst(rst),
         .write_en(write_en),
+        .addr(addr),
         .data_in(data_in),
         .data_out(data_out)
     );
-// ---------------- CLOCK GENERATION ----------------
+
+    // Clock generation
     initial begin
         clk = 0;
-        forever #5 clk = ~clk; // Toggle clock every 5 time units
+        forever #5 clk = ~clk; // 10ns clock period
     end
 
-    // ---------------- INITIALIZE TEST BENCH ----------------
-    initial begin : initialize_variables
-        rst = 1;         // Assert reset
-        write_en = 0;     // Disable write
-        addr = 8'b0;      // Initialize address
-        data_in = 8'b0;   // Initialize data_in
-        #10;              // Wait for 10 time units
-        rst = 0;          // Deassert reset
-    end
-
-    // ---------------- DUMP VARIABLES FOR WAVEFORM VIEWING ----------------
-    initial begin : dump_variables
-        $dumpfile("tb_Memory_Layout.vcd"); // Create a VCD file for waveform viewing
-        $dumpvars(0, tb_Memory_Layout);    // Dump all variables in the testbench
-    end
-
-    // ---------------- MONITOR OUTPUTS ----------------
+    // Test procedure
     initial begin
-        $monitor("Time: %0t | rst=%b | write_en=%b | addr=%h | data_in=%h | data_out=%h",
-                 $time, rst, write_en, addr, data_in, data_out);
+        // Initialize signals
+        rst = 1;          // Assert reset
+        write_en = 0;
+        addr = 0;
+        data_in = 0;
+        #20;              // Wait for a few clock cycles
+
+        // Release reset
+        rst = 0;
+        #10;
+
+        // Test 1: Write data to address 0x10
+        write_en = 1;     // Enable write
+        addr = 8'h10;     // Address = 0x10
+        data_in = 8'hA5;  // Data to write = 0xA5
+        #10;              // Wait for one clock cycle
+
+        // Test 2: Read data from address 0x10
+        write_en = 0;     // Disable write (enable read)
+        addr = 8'h10;     // Address = 0x10
+        #10;              // Wait for one clock cycle
+        
+        if (data_out === 8'hA5)
+            $display("Test 1 Passed: Data read from address 0x10 = 0x%h", data_out);
+        else
+            $display("Test 1 Failed: Expected 0xA5, Got 0x%h", data_out);
+
+        // Test 3: Write data to address 0xFF
+        write_en = 1;     // Enable write
+        addr = 8'hFF;     // Address = 0xFF
+        data_in = 8'h7E;  // Data to write = 0x7E
+        #10;              // Wait for one clock cycle
+
+        // Test 4: Read data from address 0xFF
+        write_en = 0;     // Disable write (enable read)
+        addr = 8'hFF;     // Address = 0xFF
+        #10;              // Wait for one clock cycle
+        if (data_out === 8'h7E)
+            $display("Test 2 Passed: Data read from address 0xFF = 0x%h", data_out);
+        else
+            $display("Test 2 Failed: Expected 0x7E, Got 0x%h", data_out);
+
+        // End simulation
+        $stop;
     end
 
-    // ---------------- APPLY RANDOM STIMULUS ----------------
-    initial begin : apply_stimulus
-        #20; // Wait for reset to complete
-
-        // Write random data to random addresses
-        for (int i = 0; i < 10; i = i + 1) begin
-            #10;
-            write_en = 1;                // Enable write
-            addr = $urandom_range(0, 255); // Random address
-            data_in = $urandom_range(0, 255); // Random data
-            #10;
-            write_en = 0;                // Disable write
-        end
-
-        // Read data from random addresses
-        for (int i = 0; i < 10; i = i + 1) begin
-            #10;
-            addr = $urandom_range(0, 255); // Random address
-        end
-
-        #100; // Wait for a while
-        $finish; // End the simulation
-    end
 endmodule

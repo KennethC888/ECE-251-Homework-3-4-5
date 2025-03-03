@@ -23,34 +23,27 @@ module Memory_Layout (
     output reg [7:0] data_out    // 8-bit data output (reading)
 );
 
-    // Memory array: 256 bytes (8-bit address space)
+    // Memory array: 256 bytes 
     reg [7:0] memory [0:255];
 
     integer i;
-    initial begin
-        for (i = 0; i < 256; i = i + 1) begin
-            memory[i] = 8'b0; // Initialize all memory locations to 0
-        end
-    end
 
-    // Reset 
+    // Reset and Read/Write logic
     always @(posedge clk or posedge rst) begin
         if (rst) begin
+            // Reset memory and data_out
             for (i = 0; i < 256; i = i + 1) begin
-                memory[i] <= 8'b0; // Reset all memory locations to 0
+                memory[i] <= 8'b0; // Reset 
             end
             data_out <= 8'b0; // Reset data output
-        end
-    end
-
-    // Read/Write logic
-    always @(posedge clk) begin
-        if (write_en) begin
-            // Write operation
-            memory[addr] <= data_in; // Write data_in to the specified address
         end else begin
-            // Read operation
-            data_out <= memory[addr]; // Read data from the specified address
+            if (write_en) begin
+                // Write operation
+                memory[addr] <= data_in; // Write data_in 
+            end else begin
+                // Read operation
+                data_out <= memory[addr]; // Read data 
+            end
         end
     end
 
