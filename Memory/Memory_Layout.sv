@@ -19,8 +19,8 @@ module Memory_Layout (
     input wire rst,              
     input wire write_en,          // Write enable (1 is write, 0 is read)
     input wire [7:0] addr,        // 8-bit address input
-    input wire [7:0] data_in,     // 8-bit data input (writing)
-    output reg [7:0] data_out     // 8-bit data output (reading)
+    input wire [7:0] data_in,     // (writing)
+    output reg [7:0] data_out     // (reading)
 );
 
     // Memory array: 256 bytes 
@@ -39,7 +39,7 @@ module Memory_Layout (
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             for (i = 0; i < 256; i = i + 1) begin
-                memory[i] <= 8'b0; // Reset memory
+                memory[i] <= 8'b0; // Reset 
             end
             data_out <= 8'b0; // Reset data output
         end else if (write_en) begin
@@ -47,7 +47,6 @@ module Memory_Layout (
         end
     end
 
-    // **Fixed Read: Read on clock edge**
     always @(posedge clk) begin
         if (!write_en) begin
             data_out <= memory[addr]; // Read from memory

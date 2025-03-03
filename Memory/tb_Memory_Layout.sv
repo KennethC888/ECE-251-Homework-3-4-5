@@ -57,7 +57,6 @@ module tb_Memory_Layout;
         data_in = 8'hA5;  // Data to write = 0xA5
         #10;              // Wait for one clock cycle
 
-        // **Wait an extra cycle after writing before reading**
         write_en = 0;     // Disable write (enable read)
         #10;
 
@@ -71,7 +70,7 @@ module tb_Memory_Layout;
         write_en = 1;     // Enable write
         addr = 8'hFF;     // Address = 0xFF
         data_in = 8'h7E;  // Data to write = 0x7E
-        #10;              // Wait for one clock cycle
+        #10;              
 
         // **Wait an extra cycle before reading**
         write_en = 0;     // Disable write (enable read)
@@ -83,7 +82,7 @@ module tb_Memory_Layout;
         else
             $display("Test 2 Failed: Expected 0x7E, Got 0x%h", data_out);
 
-        // **Ensure proper simulation exit**
+    
         #20;
         $finish;
     end
