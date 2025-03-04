@@ -18,11 +18,12 @@ x means that it does not apply
 | lw $t0, 0($t0)    | I and lw             | 35     | 8   | 8   | x   | x     | 0   | 8D080000       |
 | add $s0, $t1, $t0 | R and add            | 0      | 9   | 8   | 16  | 32    | x   | 01288020       |
 
+
 ### Question 4: <br />
 op=0x23, rs=1, rt=2, const=0x4 <br />
 Type: I <br />
 Assembly Language Instruction: lw $v0, 4($at) <br />
-Binary Representation: 10001100001000100000000000000100
+Binary Representation: 100011 00001 00010 0000000000000100
 
 ### Question 5: <br />
 Given PC = 20000000 <br />
