@@ -27,9 +27,9 @@ Binary Representation: 100011 00001 00010 0000000000000100
 
 ### Question 5: <br />
 Given PC = 20000000 <br />
-Lower bound: (PC + 4 - (4 * offset)) <br />
-Upper bound: (PC + 4 + (4 *offset)) <br />
+Lower bound: (PC - (4 * offset)) <br />
+Upper bound: (PC + (4 *offset)) <br />
 a) Ranges from 20000000 to 2FFFFFFC <br />
-b) Ranges from 1FFE0004 to 20020000
+b) Ranges from 1FFE0000 to 20020000
 
 
